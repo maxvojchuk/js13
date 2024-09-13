@@ -1,5 +1,9 @@
-const countProps = (object) => Object.keys(object).length;
+const countProps = (object) => {
+  const { ...prorerties } = object;
 
+  Object.keys(object).length;
+  return Object.keys(prorerties).length;
+};
 const object = {
   name: "Artur",
   age: 50,
@@ -7,11 +11,7 @@ const object = {
   mood: "unhappy",
   email: "artur@gmail.com",
 };
-const propsCount = countProps(object);
-console.log(`Кількість властивостей: ${propsCount}`);
-const { name, age, hobby, mood, email } = object;
-console.log(name);
-console.log(age);
-console.log(hobby);
-console.log(mood);
-console.log(email);
+
+console.log(countProps({})); // 0
+console.log(countProps({ name: "Mango", age: 2 })); // 2
+console.log(countProps({ mail: "poly@mail.com", isOnline: true, score: 500 })); // 3

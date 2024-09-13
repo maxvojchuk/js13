@@ -1,25 +1,42 @@
 function findBestEmployee(employees) {
   let bestEmployee = "";
   let maxTasks = 0;
-
-  for (const name in employees) {
-    if (employees[name] > maxTasks) {
+  const entries = Object.entries(employees);
+  // for (let [prop, value] of entries) {
+  //   console.log(prop, value);
+  // }
+  for (let [name, tasks] of entries) {
+    if (tasks > maxTasks) {
+      maxTasks = tasks;
       bestEmployee = name;
-      maxTasks = employees[name];
     }
+    console.log(name, tasks);
   }
 
   return bestEmployee;
 }
-const employees = {
-  ann: 29,
-  david: 35,
-  helen: 1,
-  lorence: 99,
-};
-console.log(`Найкращий робітник ${findBestEmployee(employees)}`);
-const { ann, david, helen, lorence } = employees;
-console.log(ann);
-console.log(david);
-console.log(helen);
-console.log(lorence);
+console.log(
+  findBestEmployee({
+    ann: 29,
+    david: 35,
+    helen: 1,
+    lorence: 99,
+  })
+); // lorence
+
+console.log(
+  findBestEmployee({
+    poly: 12,
+    mango: 17,
+    ajax: 4,
+  })
+); // mango
+
+console.log(
+  findBestEmployee({
+    lux: 147,
+    david: 21,
+    kiwi: 19,
+    chelsy: 38,
+  })
+); // lux

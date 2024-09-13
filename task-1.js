@@ -1,7 +1,8 @@
 const user = {
-  name: "John",
-  age: 30,
-  hobby: "reading",
+  name: "Mango",
+  age: 20,
+  hobby: "html",
+  premium: true,
 };
 
 user.mood = "happy";
@@ -13,7 +14,9 @@ const keys = Object.keys(user);
 for (let key of keys) {
   console.log(`${key}: ${user[key]}`);
 }
+
 const { name, age, hobby } = user;
+
 console.log(name);
 console.log(age);
 console.log(hobby);
